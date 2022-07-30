@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import mong.RockPaperScissors.rank.application.RankService;
 import mong.RockPaperScissors.rank.dto.RankList;
 import mong.RockPaperScissors.rank.dto.RankRequest;
+import mong.RockPaperScissors.rank.dto.RankRequestResult;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,8 +19,8 @@ public class RankController {
     }
 
     @PostMapping()
-    public void save(@RequestBody RankRequest req){
-        rankService.save(req);
+    public RankRequestResult save(@RequestBody RankRequest req){
+        return rankService.save(req);
     }
 
     @GetMapping()
